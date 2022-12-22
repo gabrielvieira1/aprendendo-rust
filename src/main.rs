@@ -120,4 +120,14 @@ fn repeticoes(){
             break;
         }
     }
+
+    println!("Fim do loop");
+
+    println!("Inicio do for");
+
+    for i in 1..=10{
+        println!("{} x {} = {}", i, multiplicador, i * multiplicador);
+    }
 }
+
+
