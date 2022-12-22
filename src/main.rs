@@ -42,6 +42,7 @@ fn main() {
     sombra();
     println!("Soma = {}", soma(10, 20));
     condicionais();
+    repeticoes();
 }
 // Shadowing
 fn sombra() {
@@ -90,4 +91,33 @@ fn condicionais() {
     // É como se o if pudesse retornar um valor, assim como funções.
     let condicao = if eh_maior { "maior" } else { "menor" };
     println!("É {} de idade", condicao);
+}
+
+fn repeticoes(){
+    let multiplicador:u8 = 5;
+
+    let mut contador:u8 = 0;
+    while contador < 10 {
+        contador += 1;
+
+        if contador == 5 {
+            continue;
+        }
+
+        println!("{} x {} = {}", contador, multiplicador, contador * multiplicador);
+    }
+
+    println!("Fim do while");
+
+    println!("Inicio do loop");
+
+    contador = 0;
+    loop{
+        contador += 1;
+        println!("{} x {} = {}", contador, multiplicador, contador * multiplicador);
+
+        if contador == 10{
+            break;
+        }
+    }
 }
