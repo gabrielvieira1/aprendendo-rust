@@ -91,6 +91,17 @@ fn condicionais() {
     // É como se o if pudesse retornar um valor, assim como funções.
     let condicao = if eh_maior { "maior" } else { "menor" };
     println!("É {} de idade", condicao);
+
+    // O match é um switch case em Rust.
+    // O match é uma expressão, assim como o if.
+    // O match é mais poderoso que o switch case, pois podemos usar expressões booleanas.
+    let linguagem = "Rust";
+    match linguagem {
+        "Rust" => println!("Linguagem de programação"),
+        "Python" => println!("Linguagem de script"),
+        "C" | "C++" => println!("Linguagem de baixo nível"),
+        _ => println!("Linguagem desconhecida"),
+    };
 }
 
 fn repeticoes(){
@@ -125,6 +136,8 @@ fn repeticoes(){
 
     println!("Inicio do for");
 
+    // Intervalos por padrão não incluem o número final. Para isso faríamos 1..=10.
+    // O for também pode ser usado como uma expressão, assim como o if.
     for i in 1..=10{
         println!("{} x {} = {}", i, multiplicador, i * multiplicador);
     }
