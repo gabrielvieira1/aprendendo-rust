@@ -26,6 +26,7 @@ fn main() {
     println!("O valor de caracter é: {}, tamanho = {} bytes", caracter, std::mem::size_of_val(&caracter));
 
     sombra();
+    println!("Soma = {}", soma(10, 20));
 }
 // Shadowing
 fn sombra() {
@@ -46,4 +47,15 @@ fn sombra() {
 
     println!("fora a = {}", a);
 }
+
+fn soma(a: i32, b: i32) -> i32 {
+    println!("A soma de {} + {} é: {}", a, b, a + b);
+    // Em rust tudo é uma expressão, ou seja, podemos retornar o valor de uma expressão.
+    // Nesse caso, retornamos o valor da soma de a + b.
+    // Se não definirmos o retorno, a função não poderá retornar um valor. 
+    // Além disso, a última expressão não deve conter ; para que seu valor seja usado como retorno.
+    a + b
+}
+
+
 
