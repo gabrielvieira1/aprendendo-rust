@@ -45,6 +45,7 @@ fn main() {
     repeticoes();
     ownership();
     pattern_matching();
+    erros();
 }
 // Shadowing
 fn sombra() {
@@ -181,7 +182,7 @@ fn rouba(string_roubada: &mut String) {
 fn pattern_matching() {
     // O pattern matching é uma forma de fazer comparações.
     // Podemos usar o pattern matching para comparar valores, e também para desestruturar valores.
-    
+
     for x in 1..=20 {
         println!("{}: {}", x, match x {
             1 => "Pouco",
@@ -193,4 +194,24 @@ fn pattern_matching() {
     }
 }
   
+fn erros() {
+    match resultado() {
+        Ok(valor) => println!("Valor: {}", valor),
+        Err(erro) => println!("Erro: {}", erro),
+    }
+    // O panic! é usado para parar a execução do programa.
+    // Stacktrace é impresso no console.
+    panic!("Erro proposital");
+}
+
+fn resultado() -> Result<i32, String> {
+    let valor = 10;
+    if valor > 0 {
+        // O Result é um enum que pode ter dois valores, Ok ou Err.
+        // O Ok é usado para retornar um valor, e o Err é usado para retornar um erro.
+        Ok(valor)
+    } else {
+        Err(String::from("Valor inválido"))
+    }
+}
 
