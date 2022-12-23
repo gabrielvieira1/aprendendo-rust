@@ -201,6 +201,8 @@ fn erros() {
     }
     // O panic! é usado para parar a execução do programa.
     // Stacktrace é impresso no console.
+    // Usado para erros que não podem ser tratados. ex: Erro de conexão com o banco de dados.
+    // Erro que não é recuperável.
     panic!("Erro proposital");
 }
 
