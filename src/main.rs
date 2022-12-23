@@ -155,6 +155,12 @@ fn repeticoes() {
 }
 
 fn ownership() {
+    // O Rust não possui garbage collector, e sim ownership.
+    // O ownership é uma forma de gerenciar a memória.
+    /*
+    Ao passar a referência para uma variável que aponta para um endereço na heap nós 
+    não precisamos copiar o dado da heap nem mover o recurso (tornando a variável original inválida).
+    */
     let mut uma_string = String::from("Gabriel");
     rouba(&mut uma_string);
 
