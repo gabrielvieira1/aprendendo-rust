@@ -43,6 +43,7 @@ fn main() {
     println!("Soma = {}", soma(10, 20));
     condicionais();
     repeticoes();
+    ownership();
 }
 // Shadowing
 fn sombra() {
@@ -104,10 +105,10 @@ fn condicionais() {
     };
 }
 
-fn repeticoes(){
-    let multiplicador:u8 = 5;
+fn repeticoes() {
+    let multiplicador: u8 = 5;
 
-    let mut contador:u8 = 0;
+    let mut contador: u8 = 0;
     while contador < 10 {
         contador += 1;
 
@@ -115,7 +116,12 @@ fn repeticoes(){
             continue;
         }
 
-        println!("{} x {} = {}", contador, multiplicador, contador * multiplicador);
+        println!(
+            "{} x {} = {}",
+            contador,
+            multiplicador,
+            contador * multiplicador
+        );
     }
 
     println!("Fim do while");
@@ -123,11 +129,16 @@ fn repeticoes(){
     println!("Inicio do loop");
 
     contador = 0;
-    loop{
+    loop {
         contador += 1;
-        println!("{} x {} = {}", contador, multiplicador, contador * multiplicador);
+        println!(
+            "{} x {} = {}",
+            contador,
+            multiplicador,
+            contador * multiplicador
+        );
 
-        if contador == 10{
+        if contador == 10 {
             break;
         }
     }
@@ -138,9 +149,23 @@ fn repeticoes(){
 
     // Intervalos por padrão não incluem o número final. Para isso faríamos 1..=10.
     // O for também pode ser usado como uma expressão, assim como o if.
-    for i in 1..=10{
+    for i in 1..=10 {
         println!("{} x {} = {}", i, multiplicador, i * multiplicador);
     }
 }
 
+fn ownership() {
+    let mut uma_string = String::from("Gabriel");
+    rouba(&mut uma_string);
 
+    println!("{}", uma_string);
+}
+
+// O Rust não possui ponteiros, mas podemos usar referências.
+// As referências são como ponteiros, mas não podem ser nulas.
+// As referências são imutáveis por padrão, mas podemos usar mut para torná-las mutáveis.
+// As referências são usadas para evitar a cópia de dados, e para evitar que o valor seja movido.
+fn rouba(string_roubada: &mut String) {
+    string_roubada.push_str(" Vieira");
+    println!("{}", string_roubada);
+}
