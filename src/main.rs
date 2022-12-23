@@ -44,6 +44,7 @@ fn main() {
     condicionais();
     repeticoes();
     ownership();
+    pattern_matching();
 }
 // Shadowing
 fn sombra() {
@@ -175,3 +176,21 @@ fn rouba(string_roubada: &mut String) {
     string_roubada.push_str(" Vieira");
     println!("{}", string_roubada);
 }
+
+
+fn pattern_matching() {
+    // O pattern matching é uma forma de fazer comparações.
+    // Podemos usar o pattern matching para comparar valores, e também para desestruturar valores.
+    
+    for x in 1..=20 {
+        println!("{}: {}", x, match x {
+            1 => "Pouco",
+            2 | 3 => "Um pouquinho",
+            4..=10 => "Um bocado",
+            _ if x % 2 == 0 => "Uma boa quantidade Par",
+            _ => "Muuuuuito"
+        });
+    }
+}
+  
+
